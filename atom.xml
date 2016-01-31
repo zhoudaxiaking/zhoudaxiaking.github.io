@@ -1,17 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[我不是zzzzzz]]></title>
+  <title><![CDATA[Jay的学习笔记]]></title>
   <link href="http://zhoudaxiaking.github.io/atom.xml" rel="self"/>
   <link href="http://zhoudaxiaking.github.io/"/>
-  <updated>2015-12-24T00:59:38+08:00</updated>
+  <updated>2016-01-31T23:01:43+08:00</updated>
   <id>http://zhoudaxiaking.github.io/</id>
   <author>
-    <name><![CDATA[zzzzzz]]></name>
+    <name><![CDATA[Jay]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript 中的原型]]></title>
+    <link href="http://zhoudaxiaking.github.io/blog/javascript-zhong-de-yuan-xing/"/>
+    <updated>2016-01-31T22:33:23+08:00</updated>
+    <id>http://zhoudaxiaking.github.io/blog/javascript-zhong-de-yuan-xing</id>
+    <content type="html"><![CDATA[<h2 id="prototype">prototype</h2>
+<p>每个JavaScript function对象都有一个prototype属性，prototype也是一个对象。</p>
+
+<h6 id="prototype-1">为什么需要prototype？</h6>
+<p>假设没有prototype属性，创建实例对象：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">Persion</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+</span><span class="line">  <span class="k">this</span><span class="p">.</span><span class="nx">species</span> <span class="o">=</span> <span class="s2">&quot;人类&quot;</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="c1">// 生成两个实例对象</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Persion</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Persion</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Persion的实例的属性species的值都是相同的，但是每个实例对象也还都保留着species属性的副本，这样浪费了资源，也无法做到数据共享。引入prototype后可以这样改写：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">Persion</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="nx">Persion</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">species</span> <span class="o">=</span> <span class="s2">&quot;人类&quot;</span><span class="p">;</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Persion</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Persion</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="nx">p1</span><span class="p">.</span><span class="nx">species</span> <span class="c1">// 人类</span>
+</span><span class="line"><span class="nx">p2</span><span class="p">.</span><span class="nx">species</span> <span class="c1">// 人类</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>实例对象一旦创建，将自动引用prototype对象的属性和方法。实例对象p1和p2的species属性引用自prototype，改变prototype的pecies的值，p1和p2 species的值也会跟着改变。实例对象需要共享的属性和方法，都放在prototype里，不需要共享的属性和方法放在构造函数中。</p>
+
+<h2 id="constructor">constructor</h2>
+<p>constructor是创建对象的构造函数，如上面例子中Persion就是一个constructor函数，通过<code>new constructor</code>生成一个实例对象。JavaScript内置constructor有：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>    <span class="c1">// A new Object object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">();</span>    <span class="c1">// A new String object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">();</span>    <span class="c1">// A new Number object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x4</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">()</span>    <span class="c1">// A new Boolean object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x5</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>     <span class="c1">// A new Array object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x6</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">();</span>    <span class="c1">// A new RegExp object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x7</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">();</span>  <span class="c1">// A new Function object</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">x8</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>      <span class="c1">// A new Date object</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="proto">__proto__</h2>
+<p>__proto__是普通对象的隐式属性，在new的时候，会指向prototype所指的对象；
+__ptoto__实际上是某个实体对象的属性，而prototype则是属于构造函数的属性。__ptoto__只能在学习或调试的环境下使用。</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</span><span class="line">  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="kd">var</span> <span class="nx">myPoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">();</span> <span class="c1">// true</span>
+</span><span class="line"><span class="nx">myPoint</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">==</span> <span class="nx">Point</span><span class="p">.</span><span class="nx">prototype</span> <span class="c1">// true</span>
+</span><span class="line"><span class="nx">myPoint</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">==</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span> <span class="c1">// true</span>
+</span><span class="line"><span class="nx">myPoint</span> <span class="k">instanceof</span> <span class="nx">Point</span><span class="p">;</span> <span class="c1">// true</span>
+</span><span class="line"><span class="nx">myPoint</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// true	</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="section">参考文章</h2>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html">Javascript继承机制的设计思想</a> <br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">继承与原型链</a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git内部原理简介]]></title>
@@ -217,21 +318,6 @@ non delta: 7 objects
 .git/objects/pack/pack-4788682aff34a626ef71c24ed0ead3f47906e840.pack: ok
 </code></pre>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[用Octopress免费搭建Github博客]]></title>
-    <link href="http://zhoudaxiaking.github.io/blog/yong-octopressmian-fei-da-jian-githubbo-ke/"/>
-    <updated>2015-12-23T23:07:20+08:00</updated>
-    <id>http://zhoudaxiaking.github.io/blog/yong-octopressmian-fei-da-jian-githubbo-ke</id>
-    <content type="html"><![CDATA[<p>如果你希望你的文章在首页显示摘要，点击类似「继续阅读」这样的按钮查看全文，可以在你的文章中插入 ，这样在这个标记之前的内容会出现在首页。你可以试着在你的文章中插入这个标签，会发现首页会在这里出现一个Read on →这样的按钮，当然我们也希望他是汉语。</p>
-
-<p>这样在这个标记之前的内容会出现在首页插入 ，这样在这个标记之前的内容会出现在首页。你可以试着在你的文章中插入这个标签，会发现首&gt;页会在这里出现一个Read on →这样的按钮，当然我们也希望他是汉语。插入 ，这样在这个标记之前的内容会出现在首页。你可以试着在你的文章中插入这个标签，会发现首&gt;页会在这里出现一个Read on →这样的按钮，当然我们也希望他是汉语。</p>
-
-<hr />
-
-<p>在你文章底部日期右边是该文章所属的分类，点击它，会显示该分类下所有的文章。但你发现该目录标题前有一个前缀 “Categories”，这当然没错，但我们希望它是汉语。在你文章底部日期右边是该文章所属的分类，点击它，会显示该分类下所有的文章。但你发现该目录标题前有一个前缀 “Categories”，这当然没错，但我们希望它是汉语。</p>
 ]]></content>
   </entry>
   
