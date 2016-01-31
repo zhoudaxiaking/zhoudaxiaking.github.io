@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://zhoudaxiaking.github.io
-title: 我不是zzzzzz
-subtitle: hard working.
-author: zzzzzz
+title: Jay的学习笔记
+subtitle: 记不住就写下来.
+author: Jay
 simple_search: https://www.google.com/search
 description:
 
@@ -72,8 +72,8 @@ github_show_profile_link: false
 github_skip_forks: false
 
 # Twitter
-twitter_user:
-twitter_tweet_button: false
+# twitter_user:
+# twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false

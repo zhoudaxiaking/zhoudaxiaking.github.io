@@ -3,7 +3,7 @@ layout: post
 title: "Git内部原理简介"
 date: 2015-12-24 00:49:55 +0800
 comments: true
-categories: 
+categories: Git
 ---
 
 
