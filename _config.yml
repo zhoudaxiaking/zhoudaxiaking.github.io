@@ -101,7 +101,7 @@ duoshuo_comments: true
 duoshuo_short_name: snailzhou
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-79725831-1
 
 # Facebook Like
 facebook_like: false
