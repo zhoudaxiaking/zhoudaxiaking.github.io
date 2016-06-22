@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Jay的学习笔记]]></title>
-  <link href="http://zhoudaxiaking.github.io/atom.xml" rel="self"/>
-  <link href="http://zhoudaxiaking.github.io/"/>
-  <updated>2016-01-31T23:01:43+08:00</updated>
-  <id>http://zhoudaxiaking.github.io/</id>
+  <link href="wwwzdaxia.com/atom.xml" rel="self"/>
+  <link href="wwwzdaxia.com/"/>
+  <updated>2016-06-22T10:32:22+08:00</updated>
+  <id>wwwzdaxia.com/</id>
   <author>
     <name><![CDATA[Jay]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JavaScript 中的原型]]></title>
-    <link href="http://zhoudaxiaking.github.io/blog/javascript-zhong-de-yuan-xing/"/>
+    <link href="wwwzdaxia.com/blog/javascript-zhong-de-yuan-xing/"/>
     <updated>2016-01-31T22:33:23+08:00</updated>
-    <id>http://zhoudaxiaking.github.io/blog/javascript-zhong-de-yuan-xing</id>
+    <id>wwwzdaxia.com/blog/javascript-zhong-de-yuan-xing</id>
     <content type="html"><![CDATA[<h2 id="prototype">prototype</h2>
 <p>每个JavaScript function对象都有一个prototype属性，prototype也是一个对象。</p>
 
@@ -116,9 +116,9 @@ __ptoto__实际上是某个实体对象的属性，而prototype则是属于构�
   
   <entry>
     <title type="html"><![CDATA[Git内部原理简介]]></title>
-    <link href="http://zhoudaxiaking.github.io/blog/gitnei-bu-yuan-li-jian-jie/"/>
+    <link href="wwwzdaxia.com/blog/gitnei-bu-yuan-li-jian-jie/"/>
     <updated>2015-12-24T00:49:55+08:00</updated>
-    <id>http://zhoudaxiaking.github.io/blog/gitnei-bu-yuan-li-jian-jie</id>
+    <id>wwwzdaxia.com/blog/gitnei-bu-yuan-li-jian-jie</id>
     <content type="html"><![CDATA[<h2 id="section">创建仓库</h2>
 
 <pre><code>$ git init

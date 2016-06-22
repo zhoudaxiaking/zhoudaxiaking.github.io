@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[分类：git | Jay的学习笔记]]></title>
-  <link href="http://zhoudaxiaking.github.io/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://zhoudaxiaking.github.io/"/>
-  <updated>2016-01-31T23:01:43+08:00</updated>
-  <id>http://zhoudaxiaking.github.io/</id>
+  <link href="wwwzdaxia.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="wwwzdaxia.com/"/>
+  <updated>2016-06-22T10:32:22+08:00</updated>
+  <id>wwwzdaxia.com/</id>
   <author>
     <name><![CDATA[Jay]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git内部原理简介]]></title>
-    <link href="http://zhoudaxiaking.github.io/blog/gitnei-bu-yuan-li-jian-jie/"/>
+    <link href="wwwzdaxia.com/blog/gitnei-bu-yuan-li-jian-jie/"/>
     <updated>2015-12-24T00:49:55+08:00</updated>
-    <id>http://zhoudaxiaking.github.io/blog/gitnei-bu-yuan-li-jian-jie</id>
+    <id>wwwzdaxia.com/blog/gitnei-bu-yuan-li-jian-jie</id>
     <content type="html"><![CDATA[<h2 id="section">创建仓库</h2>
 
 <pre><code>$ git init
