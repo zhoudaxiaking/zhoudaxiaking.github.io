@@ -4,7 +4,7 @@
   <title><![CDATA[Jay的学习笔记]]></title>
   <link href="wwwzdaxia.com/atom.xml" rel="self"/>
   <link href="wwwzdaxia.com/"/>
-  <updated>2016-06-22T16:51:30+08:00</updated>
+  <updated>2016-06-22T17:11:06+08:00</updated>
   <id>wwwzdaxia.com/</id>
   <author>
     <name><![CDATA[Jay]]></name>
@@ -61,6 +61,8 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>实例对象一旦创建，将自动引用prototype对象的属性和方法。实例对象p1和p2的species属性引用自prototype，改变prototype的pecies的值，p1和p2 species的值也会跟着改变。实例对象需要共享的属性和方法，都放在prototype里，不需要共享的属性和方法放在构造函数中。</p>
+
+<!--more-->
 
 <h2 id="constructor">constructor</h2>
 <p>constructor是创建对象的构造函数，如上面例子中Persion就是一个constructor函数，通过<code>new constructor</code>生成一个实例对象。JavaScript内置constructor有：</p>
