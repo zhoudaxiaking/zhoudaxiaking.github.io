@@ -36,7 +36,9 @@ p2.species // 人类
 {% endcodeblock %}
 
 实例对象一旦创建，将自动引用prototype对象的属性和方法。实例对象p1和p2的species属性引用自prototype，改变prototype的pecies的值，p1和p2 species的值也会跟着改变。实例对象需要共享的属性和方法，都放在prototype里，不需要共享的属性和方法放在构造函数中。
-	
+
+<!--more-->
+
 ##constructor
 constructor是创建对象的构造函数，如上面例子中Persion就是一个constructor函数，通过`new constructor`生成一个实例对象。JavaScript内置constructor有：
 
