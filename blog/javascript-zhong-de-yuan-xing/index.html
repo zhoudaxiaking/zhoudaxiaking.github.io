@@ -9,7 +9,7 @@
   <meta name="author" content="Jay">
 
   
-  <meta name="description" content="prototype
+  <meta name="description" content="JavaScript 中的原型 prototype
 每个JavaScript function对象都有一个prototype属性，prototype也是一个对象。 为什么需要prototype？
 假设没有prototype属性，创建实例对象： 1
 2
@@ -18,7 +18,7 @@
 5
 6
 7
-function Persion(name) { this &hellip;">
+function &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -35,9 +35,18 @@ function Persion(name) { this &hellip;">
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Jay的学习笔记" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<!--<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!--<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script>
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+      $(this).attr('target', '_blank');
+    });
+  }
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -209,6 +218,9 @@ __ptoto__实际上是某个实体对象的属性，而prototype则是属于构�
 </div>
 
 
+      | <a href="#comments">Comments</a>
+
+
   <footer>
     <p class="meta">
       
@@ -238,6 +250,10 @@ __ptoto__实际上是某个实体对象的属性，而prototype则是属于构�
   
   
   
+  
+     
+
+  
 </div>
 
     
@@ -249,6 +265,24 @@ __ptoto__实际上是某个实体对象的属性，而prototype则是属于构�
     </p>
   </footer>
 </article>
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"snailzhou"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+  </section>
 
 </div>
 
@@ -287,15 +321,15 @@ __ptoto__实际上是某个实体对象的属性，而prototype则是属于构�
 </p>
 
 </footer>
-  
+  <!--
 
-
-
-
-
-
-
-
+-->
+<!--
+-->
+<!--
+-->
+<!--
+-->
 
 
 

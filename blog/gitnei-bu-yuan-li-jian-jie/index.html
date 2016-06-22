@@ -9,9 +9,9 @@
   <meta name="author" content="Jay">
 
   
-  <meta name="description" content="创建仓库 $ git init
+  <meta name="description" content="Git内部原理简介 创建仓库 $ git init
 Initialized empty Git repository in /Users/zzmbp/demo/.git/ 初始化一个git仓库后会生成一个.git目录，其中有如下的一些目录和文件： $ ll .git total 24
--rw-r--r-- 1 &hellip;">
+-rw-r &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,9 +28,18 @@ Initialized empty Git repository in /Users/zzmbp/demo/.git/ 初始化一个git�
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Jay的学习笔记" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<!--<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!--<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script>
+  function addBlankTargetForLinks () {
+    $('a[href^="http"]').each(function(){
+      $(this).attr('target', '_blank');
+    });
+  }
+  $(document).bind('DOMNodeInserted', function(event) {
+    addBlankTargetForLinks();
+  });
+</script>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -308,6 +317,9 @@ non delta: 7 objects
 </div>
 
 
+      | <a href="#comments">Comments</a>
+
+
   <footer>
     <p class="meta">
       
@@ -343,6 +355,10 @@ non delta: 7 objects
   
   
   
+  
+     
+
+  
 </div>
 
     
@@ -354,6 +370,24 @@ non delta: 7 objects
     </p>
   </footer>
 </article>
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"snailzhou"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+  </section>
 
 </div>
 
@@ -392,15 +426,15 @@ non delta: 7 objects
 </p>
 
 </footer>
-  
+  <!--
 
-
-
-
-
-
-
-
+-->
+<!--
+-->
+<!--
+-->
+<!--
+-->
 
 
 
