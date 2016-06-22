@@ -26,6 +26,8 @@ categories: Git
 
 其中HEAD 文件、（尚待创建的）index 文件，和 objects 目录、refs 目录是Git的核心组成部分。objects 目录存储所有数据内容（blob、tree、commit）；refs 目录存储指向数分支最新的commit的指针；HEAD 文件指示目前所在的分支；index 文件保存暂存区信息。
 
+<!--more-->
+
 ##blob
 现在objects目录下只有两个空目录:
 
